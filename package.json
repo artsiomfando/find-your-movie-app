@@ -1,0 +1,11 @@
+{
+  "name": "find-your-movie-app",
+  "version": "1.0.0",
+  "description": "Service for movie-searching",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Artsiom Fando",
+  "license": "ISC"
+}
