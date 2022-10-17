@@ -24,8 +24,5 @@
     "incremental": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": ["node_modules", "build", "webpack"]
+  "exclude": ["node_modules", "build"]
 }
