@@ -1,11 +1,10 @@
 import React from 'react';
 
+import Logo from '../Logo/Logo';
+
 const TopBar = () => (
   <div className="topBar">
-    <span className="topBar__text">
-      <span className="topBar__text-bold">netflix</span>
-      roulette
-    </span>
+    <Logo />
     <span className="topBar__button">
       <a href="/" className="topBar__link">+ ADD MOVIE</a>
     </span>

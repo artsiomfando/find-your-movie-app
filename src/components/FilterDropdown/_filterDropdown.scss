@@ -1,0 +1,26 @@
+.filterDropdown {
+  display: flex;
+  align-items: center;
+
+  &__title {
+    opacity: 0.6;
+    margin-right: 30px;
+  } 
+
+  &__button {
+    display: flex;
+    align-items: center;
+    border: none;
+    font-size: 16px;
+    color: white;
+    background: transparent;
+    cursor: pointer;
+
+    &-icon {
+      width: 13px;
+      height: 7px;
+      margin-left: 13px;
+      background: url(./../assets/icons/arrow-dropmenu.svg) no-repeat;
+    }
+  }
+}

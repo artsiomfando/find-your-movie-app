@@ -1,0 +1,12 @@
+.filterGenre {
+  display: flex;
+  font-weight: 500;
+  line-height: 20px;
+  padding-block: 15px 22px;
+  border-bottom: 1px solid $grey;
+
+  li {
+    margin-right: 30px;
+    cursor: pointer;
+  }
+}
