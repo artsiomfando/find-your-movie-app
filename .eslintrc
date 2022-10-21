@@ -6,6 +6,9 @@
   },
   "rules": {
     "@typescript-eslint/comma-dangle": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/state-in-constructor": "off",
+    "react/destructuring-assignment": "off",
     "react/function-component-definition": [
       1,
       {

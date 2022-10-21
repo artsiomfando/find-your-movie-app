@@ -1,0 +1,50 @@
+.filterDropdown {
+  display: flex;
+  align-items: center;
+
+  &__title {
+    opacity: 0.6;
+    margin-right: 30px;
+  } 
+
+  .ui.selection.filterDropdown__button {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    min-width: 150px;
+    width: 150px;
+    border: none;
+    padding: 0;
+    padding-right: 20px;
+    font-size: 16px;
+    line-height: 19px;
+    color: white;
+    background: transparent;
+    text-transform: uppercase;
+  }
+
+  .ui.selection.dropdown > .dropdown.icon {
+    right: 0;
+    padding: 0;
+    margin: 0;
+    margin-top: 3px;
+    color: $red;
+  }
+
+  .ui.selection.visible.dropdown>.text:not(.default) {
+    color: $white;
+  }
+
+  .ui.dropdown .menu {
+    background-color: $light-grey;
+    border: none;
+  }
+
+  .ui.selection.dropdown .menu > .item {
+    border-top: 1px solid $grey;
+  }
+
+  .ui.dropdown .menu > .item {
+    color: $white;
+  }
+}

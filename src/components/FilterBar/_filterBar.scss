@@ -1,0 +1,10 @@
+.filterBar {
+  margin-inline: 50px;
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $grey;
+    margin-bottom: 30px;
+  }
+}

@@ -1,0 +1,34 @@
+.ui.secondary.filterGenre {
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.ui.menu {
+  font-family: inherit;
+  margin: 0;
+}
+
+.ui.secondary.pointing.menu .item {
+  border: none;
+}
+
+.ui.menu .item,
+.ui.secondary.menu .item,
+.ui.secondary.pointing.menu .item {
+  padding: 20px 5px 20px 5px;
+  margin-right: 30px;
+}
+
+.ui.menu .item,
+.ui.secondary.pointing.menu .active.item,
+.ui.secondary.pointing.menu .active.item:hover,
+.ui.secondary.pointing.menu a.item:hover {
+  font-weight: 500;
+  color: $white;
+  border: none;
+  box-shadow: 0 3px $red;
+}
+
+.ui.dropdown .menu .active.item {
+  font-weight: 600;
+}
