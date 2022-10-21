@@ -1,10 +1,14 @@
 .filterResults {
   margin-bottom: 70px;
 
+  .ui.grid {
+    gap: 50px;
+  }
+
   &__amount {
     font-size: 20px;
     line-height: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 
     span {
       font-weight: 600;

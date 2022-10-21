@@ -4,10 +4,10 @@ import TopBar from '../TopBar/TopBar';
 import SearchBar from '../SearchBar/SearchBar';
 
 const Header = () => (
-  <div className="header">
-    <div className="header__blur" />
+  <div className="appHeader">
+    <div className="appHeader__blur" />
     <TopBar />
-    <p className="header__title">FIND YOUR MOVIE</p>
+    <p className="appHeader__title">FIND YOUR MOVIE</p>
     <SearchBar />
   </div>
 );

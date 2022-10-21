@@ -1,8 +1,21 @@
 import React from 'react';
+import { Grid } from 'semantic-ui-react';
+
+import MovieCard from '../MovieCard/MovieCard';
 
 interface MovieItem {
-  title: string,
-  description: string,
+  id: number;
+  title: string;
+  tagline: string;
+  vote_average: number;
+  vote_count: number;
+  release_date: string;
+  poster_path: string;
+  overview: string;
+  budget: number;
+  revenue: number;
+  genres: string[];
+  runtime: number;
 }
 
 interface Props {
@@ -10,20 +23,24 @@ interface Props {
 }
 
 const FilterResults = ({ moviesList }: Props) => {
-  const filteredMoviesAmount = 0;
-  const filteredMovies = moviesList.map(({ title, description }) => (
-    <li key={title}>
-      <div>
-        <div>{title}</div>
-        <div>{description}</div>
-      </div>
-    </li>
-  ));
+  const filteredMoviesAmount = moviesList.length;
+  const filteredMovies = moviesList
+    .map(({
+      title, genres, release_date, poster_path
+    }) => (
+      <MovieCard
+        key={title}
+        poster={poster_path}
+        title={title}
+        releaseDate={release_date}
+        genres={genres}
+      />
+    ));
 
   return (
     <div className="filterResults">
       <div className="filterResults__amount"><span>{filteredMoviesAmount}</span> movies found</div>
-      <ul>{filteredMovies}</ul>
+      <Grid centered>{filteredMovies}</Grid>
     </div>
   );
 };

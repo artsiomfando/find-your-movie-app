@@ -1,0 +1,39 @@
+.ui.card {
+  box-shadow: none;
+  background: transparent;
+  width: 320px;
+  margin: 0;
+  text-align: start;
+  cursor: pointer;
+}
+
+.ui.card > .content {
+  font-size: 14px;
+  padding: 0;
+  padding-top: 20px;
+}
+
+.ui.card > .content > .header,
+.ui.card .meta {
+  font-weight: 500;
+  color: rgba($white, 0.7);
+}
+
+.ui.card>.content>.header:not(.ui) {
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.ui.card .meta {
+  position: absolute;
+  top: 500px;
+  right: 0;
+  border: 1px solid $border-grey;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.ui.card > .content > .description {
+  color: rgba($white, 0.5);
+  max-width: 250px;
+}
