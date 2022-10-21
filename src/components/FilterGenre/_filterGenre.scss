@@ -2,11 +2,14 @@
   display: flex;
   font-weight: 500;
   line-height: 20px;
-  padding-block: 15px 22px;
-  border-bottom: 1px solid $grey;
+
+  .activeTab {
+    box-shadow: 0 2px $red;
+  }
 
   li {
     margin-right: 30px;
+    padding-block: 15px 15px;
     cursor: pointer;
   }
 }

@@ -1,0 +1,13 @@
+.filterResults {
+  margin-bottom: 70px;
+
+  &__amount {
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 20px;
+
+    span {
+      font-weight: 600;
+    }
+  }
+}

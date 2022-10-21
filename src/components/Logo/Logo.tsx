@@ -2,7 +2,7 @@ import React from 'react';
 
 const Logo = () => (
   <span className="logo">
-    <span className="logo-bold">netflix</span>
+    <span>netflix</span>
     roulette
   </span>
 );
