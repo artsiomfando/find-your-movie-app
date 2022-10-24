@@ -1,7 +1,8 @@
 import React from 'react';
 
-import TopBar from '../TopBar/TopBar';
-import SearchBar from '../SearchBar/SearchBar';
+import TopBar from '../TopBar';
+import SearchBar from '../SearchBar';
+import './_header.scss';
 
 const Header = () => (
   <div className="appHeader">

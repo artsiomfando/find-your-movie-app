@@ -1,9 +1,10 @@
 import React from 'react';
 
-import FilterGenre from '../FilterGenre/FilterGenre';
-import FilterDropdown from '../FilterDropdown/FilterDropdown';
-import FilterResults from '../FilterResults/FilterResults';
-import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
+import FilterGenre from '../FilterGenre';
+import FilterDropdown from '../FilterDropdown';
+import FilterResults from '../FilterResults';
+import ErrorBoundary from '../ErrorBoundary';
+import './_filterBar.scss';
 
 const mockData = [
   {

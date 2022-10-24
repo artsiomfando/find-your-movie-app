@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './_searchBar.scss';
+
 const SearchBar = () => (
   <div className="searchBar">
     <form className="searchBar__form">

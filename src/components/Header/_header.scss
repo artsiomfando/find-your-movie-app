@@ -1,10 +1,12 @@
+@import '../../scss/variables';
+
 .appHeader {
   position: relative;
-  background-image: url(../assets/images/header-background-picture.jpg);
+  background-image: url(../../assets/images/header-background-picture.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   border-bottom: 5px solid $light-grey;
-  padding: 20px 50px 140px 50px;
+  padding: 20px 50px 140px;
 
   &__blur {
     position: absolute;

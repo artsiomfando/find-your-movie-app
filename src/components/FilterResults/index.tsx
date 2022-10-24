@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
 
-import MovieCard from '../MovieCard/MovieCard';
+import MovieCard from '../MovieCard';
 
 interface MovieItem {
   id: number;

@@ -1,6 +1,7 @@
 import React from 'react';
 
-import Logo from '../Logo/Logo';
+import Logo from '../Logo';
+import './_topBar.scss';
 
 const TopBar = () => (
   <div className="topBar">
