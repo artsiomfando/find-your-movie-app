@@ -10,3 +10,9 @@
     margin-bottom: 30px;
   }
 }
+
+.filterDropdown__button.ui.dropdown.visible {
+  .dropdown.icon:before {
+    content: "\f0d8";
+  }
+}

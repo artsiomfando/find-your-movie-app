@@ -9,6 +9,13 @@
     "react/jsx-one-expression-per-line": "off",
     "react/state-in-constructor": "off",
     "react/destructuring-assignment": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
+    "jsx-a11y/label-has-associated-control": ["error", {
+      "required": {
+        "some": ["nesting", "id"]
+      }
+    }],
     "react/function-component-definition": [
       1,
       {

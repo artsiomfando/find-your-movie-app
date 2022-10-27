@@ -1,9 +1,11 @@
 import React, { useState, MouseEvent } from 'react';
 import { Menu, MenuItemProps } from 'semantic-ui-react';
 
+import { GENRES } from '../constants';
+
 const FilterGenre = () => {
   const [activeItem, setActiveItem] = useState('ALL');
-  const genreItems = ['ALL', 'DOCUMENTARY', 'COMEDY', 'HORROR', 'CRIME'];
+  const genreItems = ['all', ...GENRES];
 
   const onItemClick = (_: MouseEvent, { name }: MenuItemProps) => setActiveItem(name!);
 
