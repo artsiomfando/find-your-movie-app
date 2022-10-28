@@ -22,7 +22,7 @@ const MovieForm = () => (
     // eslint-disable-next-line no-console
     onSubmit={(values) => console.log(values)}
   >
-    <Form className="movieForm">
+    <Form className="movieForm" autoComplete="off">
       <div className="movieForm__inputs">
         {MOVIE_FORM_FIELDS.map(({
           name, placeholder, type, as

@@ -1,4 +1,4 @@
-export const GENRES = ['documentary', 'comedy', 'horror', 'crime'];
+export const GENRES = ['Documentary', 'Comedy', 'Horror', 'Crime'];
 
 export const CONTEXT_MENU_OPTIONS = ['edit', 'delete'];
 
