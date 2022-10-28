@@ -1,5 +1,7 @@
 export const GENRES = ['documentary', 'comedy', 'horror', 'crime'];
 
+export const CONTEXT_MENU_OPTIONS = ['edit', 'delete'];
+
 export const MOVIE_FORM_FIELDS = [
   {
     name: 'title',
