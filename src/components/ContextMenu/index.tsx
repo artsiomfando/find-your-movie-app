@@ -5,11 +5,11 @@ import './_contextMenu.scss';
 
 const ContextMenu = () => {
   const [menuData, setMenuData] = useState({ showMenu: false, posX: 0, posY: 0 });
-  const contextMenuRef = useRef<any>(null);
+  const contextMenuRef = useRef<HTMLDivElement>(null);
 
-  const onContextMenu = (e: any) => {
+  const onContextMenu = (e: MouseEvent) => {
     const targetElement = document.querySelector('.movieCard');
-    if (targetElement && e.target.closest('.movieCard')) {
+    if (targetElement && (e.target as HTMLElement).closest('.movieCard')) {
       e.preventDefault();
       setMenuData({ showMenu: true, posX: e.pageX, posY: e.pageY });
     } else {
@@ -17,8 +17,8 @@ const ContextMenu = () => {
     }
   };
 
-  const onClickoutsideContextMenu = (e: any) => {
-    if (contextMenuRef.current && !contextMenuRef.current.contains(e.target)) {
+  const onClickoutsideContextMenu = (e: MouseEvent) => {
+    if (contextMenuRef.current && !contextMenuRef.current.contains(e.target as HTMLElement)) {
       setMenuData({ ...menuData, showMenu: false });
     }
   };

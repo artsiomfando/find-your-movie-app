@@ -8,15 +8,14 @@ interface Props {
 }
 
 const FilterGenre = ({ onGenreChange }: Props) => {
-  const [activeItem, setActiveItem] = useState('all');
-  const genreItems = ['all', ...GENRES];
+  const [activeItem, setActiveItem] = useState(GENRES[0]);
 
   const onItemClick = (_: MouseEvent, { name }: MenuItemProps) => {
     setActiveItem(name!);
     onGenreChange(name!);
   };
 
-  const genreList = genreItems
+  const genreList = GENRES
     .map((genreItem) => (
       <Menu.Item
         key={genreItem}

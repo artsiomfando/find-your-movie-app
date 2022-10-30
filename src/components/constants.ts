@@ -1,6 +1,13 @@
-export const GENRES = ['Documentary', 'Comedy', 'Horror', 'Crime'];
+import { FilterOptions } from './types';
+
+export const GENRES = ['All', 'Documentary', 'Comedy', 'Horror', 'Crime'];
 
 export const CONTEXT_MENU_OPTIONS = ['edit', 'delete'];
+
+export const FILTER_OPTIONS: FilterOptions[] = [
+  { text: 'RELEASE DATE', value: 'release_date' },
+  { text: 'RATING', value: 'vote_average' },
+];
 
 export const MOVIE_FORM_FIELDS = [
   {

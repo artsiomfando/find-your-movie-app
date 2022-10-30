@@ -4,6 +4,8 @@ import FilterGenre from '../FilterGenre';
 import FilterDropdown from '../FilterDropdown';
 import FilterResults from '../FilterResults';
 import ErrorBoundary from '../ErrorBoundary';
+import { FILTER_OPTIONS, GENRES } from '../constants';
+import { TSortCategory } from '../types';
 import './_filterBar.scss';
 
 const mockData = [
@@ -145,27 +147,31 @@ const SafeErrorComponent = ({ errorMessage }: { errorMessage: string }) => (
 );
 
 const FilterBar = () => {
+  const [{ value: releaseDate }, { value: rating }] = FILTER_OPTIONS;
   const [filteredData, setFilteredData] = useState(mockData);
-  const [sortCategory, setSortCategory] = useState('release_date');
+  const [sortCategory, setSortCategory] = useState<TSortCategory>(releaseDate);
 
-  const onSortItem = (sortBy: string, data = [...filteredData]) => {
+  const onSortItem = (sortBy: TSortCategory, data = [...filteredData]) => {
     setSortCategory(sortBy);
 
-    if (sortBy === 'release_date') {
+    if (sortBy === releaseDate) {
       setFilteredData(
-        data.sort((a, b) => new Date(b[sortBy]).getTime() - new Date(a[sortBy]).getTime())
+        data.sort(
+          (a, b) => new Date(b[sortBy] as string).getTime()
+                  - new Date(a[sortBy] as string).getTime()
+        )
       );
     }
 
-    if (sortBy === 'vote_average') {
+    if (sortBy === rating) {
       setFilteredData(
-        data.sort((a, b) => b[sortBy] - a[sortBy])
+        data.sort((a, b) => +b[sortBy] - +a[sortBy])
       );
     }
   };
 
   const onGenreItem = (genre: string) => {
-    if (genre === 'all') {
+    if (genre === GENRES[0]) {
       onSortItem(sortCategory, mockData);
     } else {
       const dataByGenre = mockData.filter((movie) => movie.genres.includes(genre));

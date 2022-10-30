@@ -36,7 +36,7 @@ const MovieForm = () => (
               <MovieDropdown
                 key={name}
                 label={label}
-                options={GENRES}
+                options={GENRES.slice(1)}
                 placeholder={placeholder}
               />
             )
