@@ -1,0 +1,26 @@
+@import '../../../scss/variables';
+
+.movieForm__inputs__input.ui.dropdown .menu {
+  background-color: rgba($dark-grey, .92);
+  backdrop-filter: blur(13.5px);
+  width: 100%;
+  padding-top: 15px;
+}
+
+.movieForm__inputs__input.ui.dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 23px;
+  color: rgba($white, 0.8);
+
+  .dropdown.icon:before {
+    color: $red;
+  }
+}
+
+.movieForm__inputs__input.ui.dropdown.visible {
+  .dropdown.icon:before {
+    content: "\f0d8";
+  }
+}

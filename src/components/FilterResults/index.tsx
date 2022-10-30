@@ -1,7 +1,8 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
 
-import MovieCard from '../MovieCard/MovieCard';
+import MovieCard from '../MovieCard';
+import ContextMenu from '../ContextMenu';
 
 interface MovieItem {
   id: number;
@@ -41,6 +42,7 @@ const FilterResults = ({ moviesList }: Props) => {
     <div className="filterResults">
       <div className="filterResults__amount"><span>{filteredMoviesAmount}</span> movies found</div>
       <Grid centered>{filteredMovies}</Grid>
+      <ContextMenu />
     </div>
   );
 };

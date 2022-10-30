@@ -1,13 +1,21 @@
 import React, { useState, MouseEvent } from 'react';
 import { Menu, MenuItemProps } from 'semantic-ui-react';
 
-const FilterGenre = () => {
-  const [activeItem, setActiveItem] = useState('ALL');
-  const genreItems = ['ALL', 'DOCUMENTARY', 'COMEDY', 'HORROR', 'CRIME'];
+import { GENRES } from '../constants';
 
-  const onItemClick = (_: MouseEvent, { name }: MenuItemProps) => setActiveItem(name!);
+interface Props {
+  onGenreChange: (genre: string) => void
+}
 
-  const genreList = genreItems
+const FilterGenre = ({ onGenreChange }: Props) => {
+  const [activeItem, setActiveItem] = useState(GENRES[0]);
+
+  const onItemClick = (_: MouseEvent, { name }: MenuItemProps) => {
+    setActiveItem(name!);
+    onGenreChange(name!);
+  };
+
+  const genreList = GENRES
     .map((genreItem) => (
       <Menu.Item
         key={genreItem}

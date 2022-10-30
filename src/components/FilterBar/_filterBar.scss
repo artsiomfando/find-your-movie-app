@@ -1,3 +1,5 @@
+@import '../../scss/variables';
+
 .filterBar {
   margin-inline: 50px;
 
@@ -6,5 +8,11 @@
     justify-content: space-between;
     border-bottom: 1px solid $grey;
     margin-bottom: 30px;
+  }
+}
+
+.filterDropdown__button.ui.dropdown.visible {
+  .dropdown.icon:before {
+    content: "\f0d8";
   }
 }

@@ -1,14 +1,10 @@
 @import './variables';
 @import './global';
 @import 'semantic-ui-css/semantic.min.css';
+@import "~react-datepicker/dist/react-datepicker.css";
 
-@import '../components/Header/header';
-@import '../components/SearchBar/searchBar';
-@import '../components/TopBar/topBar';
-@import '../components/Logo/logo';
-@import '../components/FilterBar/filterBar';
 @import '../components/FilterGenre/filterGenre';
 @import '../components/FilterDropdown/filterDropdown';
-@import '../components/Footer/footer';
 @import '../components/FilterResults/filterResults';
 @import '../components/MovieCard/movieCard';
+@import '../components/Modal/modal';

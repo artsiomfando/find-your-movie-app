@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import FilterGenre from '../FilterGenre/FilterGenre';
-import FilterDropdown from '../FilterDropdown/FilterDropdown';
-import FilterResults from '../FilterResults/FilterResults';
-import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
+import FilterGenre from '../FilterGenre';
+import FilterDropdown from '../FilterDropdown';
+import FilterResults from '../FilterResults';
+import ErrorBoundary from '../ErrorBoundary';
+import { FILTER_OPTIONS, GENRES } from '../constants';
+import { TSortCategory } from '../types';
+import './_filterBar.scss';
 
 const mockData = [
   {
@@ -12,13 +15,14 @@ const mockData = [
     tagline: "Don't miss the climax",
     vote_average: 6.1,
     vote_count: 1195,
-    release_date: '2018-02-07',
+    release_date: '2016-02-07',
     poster_path: 'https://image.tmdb.org/t/p/w500/3kcEGnYBHDeqmdYf8ZRbKdfmlUy.jpg',
     overview: 'Believing they have left behind shadowy figures from their past, newlyweds Christian and Ana fully embrace an inextricable connection and shared life of luxury. But just as she steps into her role as Mrs. Grey and he relaxes into an unfamiliar stability, new threats could jeopardize their happy ending before it even begins.',
     budget: 55000000,
     revenue: 136906000,
     genres: [
       'Drama',
+      'Documentary',
       'Romance'
     ],
     runtime: 106
@@ -27,7 +31,7 @@ const mockData = [
     id: 181808,
     title: 'Star Wars: The Last Jedi',
     tagline: 'The Saga Continues',
-    vote_average: 7.1,
+    vote_average: 5.1,
     vote_count: 4732,
     release_date: '2017-12-13',
     poster_path: 'https://image.tmdb.org/t/p/w500/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg',
@@ -36,7 +40,7 @@ const mockData = [
     revenue: 1325937250,
     genres: [
       'Fantasy',
-      'Adventure',
+      'Documentary',
       'Science Fiction'
     ],
     runtime: 152
@@ -92,6 +96,7 @@ const mockData = [
     revenue: 0,
     genres: [
       'Adventure',
+      'Documentary',
       'Science Fiction',
       'Action'
     ],
@@ -141,16 +146,50 @@ const SafeErrorComponent = ({ errorMessage }: { errorMessage: string }) => (
   </div>
 );
 
-const FilterBar = () => (
-  <div className="filterBar">
-    <div className="filterBar__nav">
-      <FilterGenre />
-      <FilterDropdown />
+const FilterBar = () => {
+  const [{ value: releaseDate }, { value: rating }] = FILTER_OPTIONS;
+  const [filteredData, setFilteredData] = useState(mockData);
+  const [sortCategory, setSortCategory] = useState<TSortCategory>(releaseDate);
+
+  const onSortItem = (sortBy: TSortCategory, data = [...filteredData]) => {
+    setSortCategory(sortBy);
+
+    if (sortBy === releaseDate) {
+      setFilteredData(
+        data.sort(
+          (a, b) => new Date(b[sortBy] as string).getTime()
+                  - new Date(a[sortBy] as string).getTime()
+        )
+      );
+    }
+
+    if (sortBy === rating) {
+      setFilteredData(
+        data.sort((a, b) => +b[sortBy] - +a[sortBy])
+      );
+    }
+  };
+
+  const onGenreItem = (genre: string) => {
+    if (genre === GENRES[0]) {
+      onSortItem(sortCategory, mockData);
+    } else {
+      const dataByGenre = mockData.filter((movie) => movie.genres.includes(genre));
+      onSortItem(sortCategory, dataByGenre);
+    }
+  };
+
+  return (
+    <div className="filterBar">
+      <div className="filterBar__nav">
+        <FilterGenre onGenreChange={onGenreItem} />
+        <FilterDropdown onSortChange={onSortItem} />
+      </div>
+      <ErrorBoundary ErrorComponent={SafeErrorComponent}>
+        <FilterResults moviesList={filteredData} />
+      </ErrorBoundary>
     </div>
-    <ErrorBoundary ErrorComponent={SafeErrorComponent}>
-      <FilterResults moviesList={mockData} />
-    </ErrorBoundary>
-  </div>
-);
+  );
+};
 
 export default FilterBar;

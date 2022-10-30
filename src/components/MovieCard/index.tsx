@@ -11,7 +11,7 @@ interface Props {
 const MovieCard = ({
   poster, title, releaseDate, genres
 }: Props) => (
-  <Card>
+  <Card className="movieCard">
     <Image src={poster} wrapped ui={false} />
     <Card.Content>
       <Card.Header>{title}</Card.Header>
