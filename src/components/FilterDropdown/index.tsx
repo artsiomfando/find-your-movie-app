@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Dropdown } from 'semantic-ui-react';
 
+import useLocalStorage from '../helpers/useLocalStorage';
 import { FILTER_OPTIONS } from '../constants';
 import { TSortCategory } from '../types';
 
@@ -9,17 +10,24 @@ interface Props {
 }
 
 const FilterDropdown = ({ onSortChange }: Props) => {
+  const [sortCategory, setSortCategory] = useLocalStorage('sortCategory', FILTER_OPTIONS[0].value);
+
   useEffect(() => onSortChange(FILTER_OPTIONS[0].value), []);
+
+  const onSortCategoryChange = (value: TSortCategory) => {
+    onSortChange(value);
+    setSortCategory(value);
+  };
 
   return (
     <div className="filterDropdown">
       <span className="filterDropdown__title">SORT BY</span>
       <Dropdown
         className="filterDropdown__button"
-        defaultValue={FILTER_OPTIONS[0].value}
+        defaultValue={sortCategory}
         selection
         options={FILTER_OPTIONS}
-        onChange={(_, { value }) => onSortChange(value as TSortCategory)}
+        onChange={(_, { value }) => onSortCategoryChange(value as TSortCategory)}
       />
     </div>
   );

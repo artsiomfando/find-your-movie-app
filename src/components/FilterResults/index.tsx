@@ -27,10 +27,11 @@ const FilterResults = ({ moviesList }: Props) => {
   const filteredMoviesAmount = moviesList.length;
   const filteredMovies = moviesList
     .map(({
-      title, genres, release_date, poster_path
+      id, title, genres, release_date, poster_path
     }) => (
       <MovieCard
-        key={title}
+        key={id}
+        id={id}
         poster={poster_path}
         title={title}
         releaseDate={release_date}

@@ -1,10 +1,16 @@
-.ui.card {
+a.ui.card {
   box-shadow: none;
   background: transparent;
   width: 320px;
   margin: 0;
   text-align: start;
   cursor: pointer;
+
+  &:hover {
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+  }
 }
 
 .ui.card > .content {
