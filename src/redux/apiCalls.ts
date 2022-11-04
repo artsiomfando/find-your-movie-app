@@ -40,16 +40,16 @@ export const addMovie = createAsyncThunk(
 
 export const editMovie = createAsyncThunk(
   'movies/edit',
-  async (id, data: any) => {
-    const response = await moviesApi.put(`/movies/${id}`, data);
+  async (movieDetails: IMovie) => {
+    const response = await moviesApi.put('/movies/', movieDetails);
     return response.data;
   }
 );
 
 export const removeMovie = createAsyncThunk(
   'movies/remove',
-  async ({ id }: any) => {
-    await moviesApi.delete(`/movies/${id}`, id);
-    return { id };
+  async (id: number) => {
+    await moviesApi.delete(`/movies/${id}`);
+    return id;
   }
 );
