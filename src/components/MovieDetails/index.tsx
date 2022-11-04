@@ -1,7 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import Logo from '../Logo';
-import MovieContext, { TMovieContext } from '../MovieContext';
+import { AppDispatch } from '../../redux/store';
+import { resetActiveMovie } from '../../redux/movieSlice';
 import transformMovieRuntime from '../helpers/transformMovieRuntime';
 import { IMovie } from '../types';
 import './_movieDetails.scss';
@@ -17,9 +19,10 @@ const MovieDetails = ({
 }: Props) => {
   const processedGenres = genres.join(' & ');
   const releaseYear = release_date.slice(0, 4);
+  const processedRating = vote_average.toFixed(1);
   const processedRuntime = transformMovieRuntime(runtime);
 
-  const [, setIsMovieContext] = useContext(MovieContext) as TMovieContext;
+  const dispatch = useDispatch<AppDispatch>();
 
   return (
     <div className="movieDetails">
@@ -28,7 +31,7 @@ const MovieDetails = ({
         <button
           type="button"
           className="movieDetails__searchButton"
-          onClick={() => setIsMovieContext(0)}
+          onClick={() => dispatch(resetActiveMovie())}
         />
       </div>
       <div className="movieDetails__main">
@@ -38,12 +41,12 @@ const MovieDetails = ({
         <div className="movieDetails__info">
           <div className="movieDetails__info__title-container">
             <span className="movieDetails__info__title">{title}</span>
-            <span className="movieDetails__info__rating">{vote_average}</span>
+            <span className="movieDetails__info__rating">{processedRating}</span>
           </div>
           <div className="movieDetails__info__genre">{processedGenres}</div>
           <div className="movieDetails__info__additional">
             <span>{releaseYear}</span>
-            <span>{processedRuntime}</span>
+            { runtime ? <span>{processedRuntime}</span> : null }
           </div>
           <div className="movieDetails__info__overview">{overview}</div>
         </div>

@@ -17,6 +17,12 @@
         "some": ["nesting", "id"]
       }
     }],
+    "no-param-reassign": ["error", {
+      "props": true,
+      "ignorePropertyModificationsFor": [
+        "state"
+      ]
+    }],
     "react/function-component-definition": [
       1,
       {
