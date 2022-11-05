@@ -13,6 +13,17 @@ export interface IMovie {
   runtime: number;
 }
 
+export interface IMovieState {
+  movies: IMovie[]
+  activeMovie: IMovie | null,
+  sortByCategory: string
+  filterByGenre: string
+}
+
+export interface IState {
+  movie: IMovieState
+}
+
 export type TSortCategory = keyof IMovie;
 
 export interface FilterOptions {

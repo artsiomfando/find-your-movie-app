@@ -26,6 +26,15 @@ module.exports = {
           'sass-loader',
         ],
       },
+      {
+        test: /\.(png|jpg)$/,
+        type: 'asset/resource'
+      },
+      {
+        test: /\.js$/,
+        enforce: 'pre',
+        use: ['source-map-loader'],
+      },
     ],
   },
   plugins: [

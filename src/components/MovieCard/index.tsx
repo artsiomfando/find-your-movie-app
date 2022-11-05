@@ -1,7 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Card, Image } from 'semantic-ui-react';
 
-import MovieContext, { TMovieContext } from '../MovieContext';
+import { AppDispatch } from '../../redux/store';
+import { fetchMovie } from '../../redux/apiCalls';
+import defaultPoster from '../../assets/images/default-poster.jpg';
 
 interface Props {
   id: number,
@@ -14,16 +17,16 @@ interface Props {
 const MovieCard = ({
   id, poster, title, releaseDate, genres
 }: Props) => {
-  const [, setMovieID] = useContext(MovieContext) as TMovieContext;
+  const dispatch = useDispatch<AppDispatch>();
 
   const moveToMovieDetails = () => {
-    setMovieID(id);
+    dispatch(fetchMovie(id));
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   };
 
   return (
     <Card className="movieCard" onClick={moveToMovieDetails}>
-      <Image src={poster} wrapped ui={false} />
+      <Image src={poster ?? defaultPoster} wrapped ui={false} />
       <Card.Content>
         <Card.Header>{title}</Card.Header>
         <Card.Meta>{releaseDate.slice(0, 4)}</Card.Meta>

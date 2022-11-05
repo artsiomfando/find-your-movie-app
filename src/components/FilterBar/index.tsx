@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import FilterGenre from '../FilterGenre';
 import FilterDropdown from '../FilterDropdown';
 import FilterResults from '../FilterResults';
 import ErrorBoundary from '../ErrorBoundary';
-import { FILTER_OPTIONS, GENRES } from '../constants';
-import { TSortCategory, IMovie } from '../types';
+import { selectSortCategory, selectfilterByGenre } from '../../redux/selectors';
+import { fetchMovies } from '../../redux/apiCalls';
+import { changeGenre, changeSortCategory } from '../../redux/movieSlice';
+import { AppDispatch } from '../../redux/store';
+import { GENRES } from '../constants';
+import { IMovie, TSortCategory } from '../types';
 import './_filterBar.scss';
 
 interface Props {
@@ -20,37 +25,23 @@ const SafeErrorComponent = ({ errorMessage }: { errorMessage: string }) => (
 );
 
 const FilterBar = ({ moviesData }: Props) => {
-  const [{ value: releaseDate }, { value: rating }] = FILTER_OPTIONS;
-  const [filteredData, setFilteredData] = useState(moviesData);
-  const [sortCategory, setSortCategory] = useState<TSortCategory>(releaseDate);
-
-  const onSortItem = (sortBy: TSortCategory, data = [...filteredData]) => {
-    setSortCategory(sortBy);
-
-    if (sortBy === releaseDate) {
-      setFilteredData(
-        data.sort(
-          (a, b) => new Date(b[sortBy] as string).getTime()
-                  - new Date(a[sortBy] as string).getTime()
-        )
-      );
-    }
-
-    if (sortBy === rating) {
-      setFilteredData(
-        data.sort((a, b) => +b[sortBy] - +a[sortBy])
-      );
-    }
-  };
+  const dispatch = useDispatch<AppDispatch>();
+  const sortCategory = useSelector(selectSortCategory);
+  const genreCategory = useSelector(selectfilterByGenre);
 
   const onGenreItem = (genre: string) => {
-    if (genre === GENRES[0]) {
-      onSortItem(sortCategory, moviesData);
-    } else {
-      const dataByGenre = moviesData.filter((movie) => movie.genres.includes(genre));
-      onSortItem(sortCategory, dataByGenre);
-    }
+    const formattedGenre = GENRES.slice(1).includes(genre) ? genre : null;
+    dispatch(changeGenre(formattedGenre));
   };
+
+  const onSortItem = (sortBy: TSortCategory) => {
+    dispatch(changeSortCategory(sortBy));
+  };
+
+  useEffect(() => {
+    dispatch(fetchMovies({ sortCategory, genreCategory }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sortCategory, genreCategory]);
 
   return (
     <div className="filterBar">
@@ -59,7 +50,7 @@ const FilterBar = ({ moviesData }: Props) => {
         <FilterDropdown onSortChange={onSortItem} />
       </div>
       <ErrorBoundary ErrorComponent={SafeErrorComponent}>
-        <FilterResults moviesList={filteredData} />
+        <FilterResults moviesList={moviesData} />
       </ErrorBoundary>
     </div>
   );

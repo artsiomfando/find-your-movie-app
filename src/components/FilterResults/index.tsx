@@ -3,24 +3,10 @@ import { Grid } from 'semantic-ui-react';
 
 import MovieCard from '../MovieCard';
 import ContextMenu from '../ContextMenu';
-
-interface MovieItem {
-  id: number;
-  title: string;
-  tagline: string;
-  vote_average: number;
-  vote_count: number;
-  release_date: string;
-  poster_path: string;
-  overview: string;
-  budget: number;
-  revenue: number;
-  genres: string[];
-  runtime: number;
-}
+import { IMovie } from '../types';
 
 interface Props {
-  moviesList: MovieItem[],
+  moviesList: IMovie[],
 }
 
 const FilterResults = ({ moviesList }: Props) => {
