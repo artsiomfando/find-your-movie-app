@@ -16,6 +16,11 @@ a.ui.card {
 
 .ui.card > .image {
   height: 480px;
+  overflow: hidden;
+
+  img {
+    height: 100%;
+  }
 
   img::before {
     content: '';
@@ -55,7 +60,11 @@ a.ui.card {
   padding: 4px 8px;
 }
 
+.ui.card > .content > .header,
+.ui.card > .content > .description {
+  max-width: 250px;
+}
+
 .ui.card > .content > .description {
   color: rgba($white, 0.5);
-  max-width: 250px;
 }

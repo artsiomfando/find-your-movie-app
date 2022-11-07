@@ -21,9 +21,15 @@
   }
 
   &__option {
+    text-align: left;
     text-transform: capitalize;
     padding-block: 7px;
     padding-left: 23px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: $white;
+    background-color: rgba($dark-grey, .95);
     cursor: pointer;
 
     &:hover {

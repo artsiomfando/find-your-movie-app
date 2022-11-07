@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { fetchMovies, fetchMovie } from './apiCalls';
+import {
+  fetchMovies, fetchMovie, addMovie, removeMovie
+} from './apiCalls';
 import { FILTER_OPTIONS } from '../components/constants';
 import { IMovieState } from '../components/types';
 
@@ -9,6 +11,7 @@ const initialState: IMovieState = {
   activeMovie: null,
   sortByCategory: JSON.parse(localStorage.getItem('sortCategory')!) ?? FILTER_OPTIONS[0].value,
   filterByGenre: '',
+  selectedMovieId: null,
 };
 
 export const movieSlice = createSlice({
@@ -23,6 +26,9 @@ export const movieSlice = createSlice({
     },
     resetActiveMovie(state) {
       state.activeMovie = null;
+    },
+    setSelectedMovieId(state, { payload }) {
+      state.selectedMovieId = payload;
     }
   },
   extraReducers: (builder) => {
@@ -32,10 +38,18 @@ export const movieSlice = createSlice({
       })
       .addCase(fetchMovie.fulfilled, (state, { payload }) => {
         state.activeMovie = payload;
+      })
+      .addCase(addMovie.fulfilled, (state, { payload }) => {
+        state.movies.push(payload);
+      })
+      .addCase(removeMovie.fulfilled, (state, { payload }) => {
+        state.movies.filter(({ id }) => id !== payload);
       });
   }
 });
 
-export const { changeGenre, changeSortCategory, resetActiveMovie } = movieSlice.actions;
+export const {
+  changeGenre, changeSortCategory, resetActiveMovie, setSelectedMovieId
+} = movieSlice.actions;
 
 export default movieSlice.reducer;
