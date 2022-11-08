@@ -8,6 +8,7 @@ import MovieDropdown from '../MovieDropdown';
 import MovieDatePicker from '../MovieDatePicker';
 import { AppDispatch } from '../../../redux/store';
 import { addMovie, editMovie } from '../../../redux/apiCalls';
+import movieFormSchema from '../movieFormSchema';
 import { GENRES, MOVIE_FORM_FIELDS, MOVIE_FORM_INITIAL_VALUES } from '../../constants';
 import './_movieForm.scss';
 import { IMovie, IMovieBase } from '../../types';
@@ -37,6 +38,7 @@ const MovieForm = ({ movieToEdit, initialValues = MOVIE_FORM_INITIAL_VALUES }: P
     <Formik
       initialValues={initialValues}
       onSubmit={onFormSubmit}
+      validationSchema={movieFormSchema}
     >
       <Form className="movieForm" autoComplete="off">
         <div className="movieForm__inputs">

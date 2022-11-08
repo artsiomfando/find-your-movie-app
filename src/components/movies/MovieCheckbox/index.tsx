@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useField } from 'formik';
 
 import './_movieCheckbox.scss';
 
 interface Props {
   value: string
-  [key: string]: any
+  setWarning: (warningText: string | undefined) => void
 }
 
-const MovieCheckbox = ({ value }: Props) => {
-  const [field] = useField('genres');
+const MovieCheckbox = ({ value, setWarning }: Props) => {
+  const [field, meta] = useField('genres');
+
+  useEffect(() => {
+    setWarning(meta.error);
+  }, [meta.error]);
 
   return (
     <div className="movieForm__checkbox-container">
