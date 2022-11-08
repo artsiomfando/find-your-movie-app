@@ -1,16 +1,26 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
+import { setSelectedMovieId } from '../../redux/movieSlice';
+import { selectMovieId } from '../../redux/selectors';
+import { AppDispatch } from '../../redux/store';
 import { CONTEXT_MENU_OPTIONS } from '../constants';
 import './_contextMenu.scss';
 
 const ContextMenu = () => {
+  const dispatch = useDispatch<AppDispatch>();
   const [menuData, setMenuData] = useState({ showMenu: false, posX: 0, posY: 0 });
   const contextMenuRef = useRef<HTMLDivElement>(null);
+  const movieId = useSelector(selectMovieId);
 
   const onContextMenu = (e: MouseEvent) => {
     const targetElement = document.querySelector('.movieCard');
-    if (targetElement && (e.target as HTMLElement).closest('.movieCard')) {
+    const chosenCard = (e.target as HTMLElement).closest('.movieCard');
+
+    if (targetElement && chosenCard) {
       e.preventDefault();
+      dispatch(setSelectedMovieId(chosenCard.id));
       setMenuData({ showMenu: true, posX: e.pageX, posY: e.pageY });
     } else {
       setMenuData({ ...menuData, showMenu: false });
@@ -36,7 +46,13 @@ const ContextMenu = () => {
     <div ref={contextMenuRef} className="contextMenu" style={{ display: `${menuData.showMenu ? 'flex' : 'none'}`, left: menuData.posX, top: menuData.posY }}>
       <div className="contextMenu__close-cross" />
       {CONTEXT_MENU_OPTIONS.map((option) => (
-        <div key={option} className="contextMenu__option">{option}</div>
+        <Link
+          key={option}
+          to={`/movies/${option}/${movieId}`}
+          className="contextMenu__option"
+        >
+          {option}
+        </Link>
       ))}
     </div>
   );

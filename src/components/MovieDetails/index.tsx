@@ -18,9 +18,9 @@ const MovieDetails = ({
   }
 }: Props) => {
   const processedGenres = genres.join(' & ');
-  const releaseYear = release_date.slice(0, 4);
-  const processedRating = vote_average.toFixed(1);
-  const processedRuntime = transformMovieRuntime(runtime);
+  const releaseYear = release_date?.slice(0, 4);
+  const processedRating = vote_average ? vote_average.toFixed(1) : null;
+  const processedRuntime = runtime ? transformMovieRuntime(runtime) : null;
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -41,7 +41,7 @@ const MovieDetails = ({
         <div className="movieDetails__info">
           <div className="movieDetails__info__title-container">
             <span className="movieDetails__info__title">{title}</span>
-            <span className="movieDetails__info__rating">{processedRating}</span>
+            { vote_average ? <span className="movieDetails__info__rating">{processedRating}</span> : null }
           </div>
           <div className="movieDetails__info__genre">{processedGenres}</div>
           <div className="movieDetails__info__additional">

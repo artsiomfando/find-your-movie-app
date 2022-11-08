@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import moviesApi from '../api/moviesApi';
-import { IMovie } from '../components/types';
+import { IMovie, IMovieBase } from '../components/types';
 
 interface IFetchAllProps {
   sortCategory: string
@@ -32,7 +32,7 @@ export const fetchMovie = createAsyncThunk(
 
 export const addMovie = createAsyncThunk(
   'movies/add',
-  async (movieDetails: IMovie) => {
+  async (movieDetails: IMovieBase) => {
     const response = await moviesApi.post('/movies', movieDetails);
     return response.data;
   }

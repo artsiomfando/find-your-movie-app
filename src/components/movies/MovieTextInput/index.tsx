@@ -12,7 +12,7 @@ interface Props {
 const MovieTextInput = ({
   label, as, ...props
 }: Props) => {
-  const [field] = useField(props);
+  const [field, meta] = useField(props);
   const isTextarea = as === 'textarea';
 
   return (
@@ -22,6 +22,9 @@ const MovieTextInput = ({
         isTextarea
           ? <textarea {...field} {...props} />
           : <input {...field} {...props} />
+      }
+      {
+        meta.touched && meta.error && <div>{meta.error}</div>
       }
     </div>
   );
