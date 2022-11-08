@@ -22,6 +22,7 @@
 
   &__option {
     text-align: left;
+    text-decoration: none;
     text-transform: capitalize;
     padding-block: 7px;
     padding-left: 23px;
@@ -33,6 +34,7 @@
     cursor: pointer;
 
     &:hover {
+      color: $white;
       background-color: $red;
     }
   }

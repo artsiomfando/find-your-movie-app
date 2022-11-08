@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import {
-  fetchMovies, fetchMovie, addMovie, removeMovie
+  fetchMovies, fetchMovie, addMovie, editMovie, removeMovie
 } from './apiCalls';
 import { FILTER_OPTIONS } from '../components/constants';
 import { IMovieState } from '../components/types';
@@ -38,6 +38,13 @@ export const movieSlice = createSlice({
       })
       .addCase(fetchMovie.fulfilled, (state, { payload }) => {
         state.activeMovie = payload;
+      })
+      .addCase(editMovie.fulfilled, (state, { payload }) => {
+        state.movies.map((movie) => (
+          movie.id === state.selectedMovieId
+            ? payload
+            : movie
+        ));
       })
       .addCase(addMovie.fulfilled, (state, { payload }) => {
         state.movies.push(payload);

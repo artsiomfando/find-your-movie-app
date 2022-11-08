@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Logo from '../Logo';
 import './_topBar.scss';
@@ -7,7 +8,7 @@ const TopBar = () => (
   <div className="topBar">
     <Logo />
     <span className="topBar__button">
-      <a href="/" className="topBar__link">+ ADD MOVIE</a>
+      <Link to="/movies/new" className="topBar__link">+ ADD MOVIE</Link>
     </span>
   </div>
 );

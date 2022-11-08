@@ -15,7 +15,7 @@ import { IMovie, IMovieBase } from '../../types';
 
 interface Props {
   movieToEdit?: IMovie
-  initialValues: IMovieBase
+  initialValues?: IMovieBase
 }
 
 const MovieForm = ({ movieToEdit, initialValues = MOVIE_FORM_INITIAL_VALUES }: Props) => {
@@ -27,6 +27,8 @@ const MovieForm = ({ movieToEdit, initialValues = MOVIE_FORM_INITIAL_VALUES }: P
         ...movieToEdit,
         ...values
       };
+
+      console.log(editedMovie);
 
       dispatch(editMovie(editedMovie));
     } else {
