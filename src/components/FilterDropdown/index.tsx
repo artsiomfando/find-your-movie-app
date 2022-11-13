@@ -10,7 +10,7 @@ interface Props {
 }
 
 const FilterDropdown = ({ onSortChange }: Props) => {
-  const [sortCategory, setSortCategory] = useLocalStorage('sortCategory', FILTER_OPTIONS[0].value);
+  const [sortCategory, setSortCategory] = useLocalStorage('sortCategory', FILTER_OPTIONS[1].value);
 
   const onSortCategoryChange = (value: TSortCategory) => {
     onSortChange(value);

@@ -3,19 +3,27 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import moviesApi from '../api/moviesApi';
 import { IMovie, IMovieBase } from '../components/types';
 
+type TSearchCategory = 'title' | 'genres';
+
 interface IFetchAllProps {
   sortCategory: string
   genreCategory: string
+  searchQuery?: string
+  searchCategory?: TSearchCategory
 }
 
 export const fetchMovies = createAsyncThunk(
   'movies/fetchAll',
-  async ({ sortCategory, genreCategory }: IFetchAllProps) => {
+  async ({
+    sortCategory, genreCategory, searchQuery, searchCategory
+  }: IFetchAllProps) => {
     const response = await moviesApi.get('/movies', {
       params: {
         sortBy: sortCategory,
         sortOrder: 'desc',
-        filter: genreCategory
+        filter: genreCategory,
+        search: searchQuery || '',
+        searchBy: searchCategory
       }
     });
     return response.data.data;

@@ -28,8 +28,6 @@ const MovieForm = ({ movieToEdit, initialValues = MOVIE_FORM_INITIAL_VALUES }: P
         ...values
       };
 
-      console.log(editedMovie);
-
       dispatch(editMovie(editedMovie));
     } else {
       dispatch(addMovie(values));
