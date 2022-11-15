@@ -10,6 +10,9 @@ module.exports = {
   target: 'web',
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.scss'],
+    alias: {
+      reduxStore: path.resolve(__dirname, 'src/redux')
+    }
   },
   module: {
     rules: [

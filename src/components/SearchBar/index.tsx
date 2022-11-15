@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectAllMovies, selectActiveMovie } from '../../redux/selectors';
 
+import { fetchMovie, fetchMovies } from 'reduxStore/apiCalls';
+import { selectAllMovies, selectActiveMovie } from 'reduxStore/selectors';
+import { AppDispatch } from 'reduxStore/store';
 import Header from '../Header';
 import MovieDetails from '../MovieDetails';
 import FilterGenre from '../FilterGenre';
 import FilterDropdown from '../FilterDropdown';
 import FilterResults from '../FilterResults';
 import ErrorBoundary from '../ErrorBoundary';
-import { fetchMovie, fetchMovies } from '../../redux/apiCalls';
-import { AppDispatch } from '../../redux/store';
 import { FILTER_OPTIONS, GENRES } from '../constants';
 import { TSortCategory } from '../types';
 import './_filterBar.scss';

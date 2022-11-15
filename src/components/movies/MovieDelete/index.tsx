@@ -2,9 +2,9 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
+import { AppDispatch } from 'reduxStore/store';
+import { removeMovie } from 'reduxStore/apiCalls';
 import Modal from '../../Modal';
-import { AppDispatch } from '../../../redux/store';
-import { removeMovie } from '../../../redux/apiCalls';
 import './_movieDelete.scss';
 
 const MovieDelete = () => {

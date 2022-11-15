@@ -1,13 +1,14 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { useDispatch } from 'react-redux';
 
+import { AppDispatch } from 'reduxStore/store';
+import { addMovie, editMovie } from 'reduxStore/apiCalls';
 import MovieTextInput from '../MovieTextInput';
 import MovieDropdown from '../MovieDropdown';
 import MovieDatePicker from '../MovieDatePicker';
-import { AppDispatch } from '../../../redux/store';
-import { addMovie, editMovie } from '../../../redux/apiCalls';
 import movieFormSchema from '../movieFormSchema';
 import { GENRES, MOVIE_FORM_FIELDS, MOVIE_FORM_INITIAL_VALUES } from '../../constants';
 import './_movieForm.scss';
@@ -83,7 +84,7 @@ const MovieForm = ({ movieToEdit, initialValues = MOVIE_FORM_INITIAL_VALUES }: P
         </div>
 
         <div className="movieForm__buttons">
-          <button type="button" className="button modal-button button-reset">Reset</button>
+          <Link to="/" className="button modal-button button-reset">Reset</Link>
           <button type="submit" className="button modal-button">Submit</button>
         </div>
       </Form>

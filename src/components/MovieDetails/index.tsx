@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
+import { AppDispatch } from 'reduxStore/store';
+import { resetActiveMovie } from 'reduxStore/movieSlice';
 import Logo from '../Logo';
-import { AppDispatch } from '../../redux/store';
-import { resetActiveMovie } from '../../redux/movieSlice';
 import transformMovieRuntime from '../helpers/transformMovieRuntime';
 import { IMovie } from '../types';
 import './_movieDetails.scss';

@@ -2,9 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
+import { selectAllMovies } from 'reduxStore/selectors';
 import Modal from '../../Modal';
 import MovieForm from '../MovieForm';
-import { selectAllMovies } from '../../../redux/selectors';
 import { IMovie } from '../../types';
 
 const MovieEdit = () => {
