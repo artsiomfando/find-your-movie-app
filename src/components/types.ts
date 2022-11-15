@@ -18,8 +18,6 @@ export interface IMovie extends IMovieBase {
 export interface IMovieState {
   movies: IMovie[]
   activeMovie: IMovie | null,
-  sortByCategory: string
-  filterByGenre: string
   selectedMovieId: number | null
 }
 

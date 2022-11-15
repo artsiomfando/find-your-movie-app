@@ -7,9 +7,10 @@ import { IMovie } from '../types';
 
 interface Props {
   moviesList: IMovie[],
+  onMovieClick: (id: number) => void
 }
 
-const FilterResults = ({ moviesList }: Props) => {
+const FilterResults = ({ moviesList, onMovieClick }: Props) => {
   const filteredMoviesAmount = moviesList.length;
   const filteredMovies = moviesList
     .map(({
@@ -22,6 +23,7 @@ const FilterResults = ({ moviesList }: Props) => {
         title={title}
         releaseDate={release_date}
         genres={genres}
+        onItemClick={onMovieClick}
       />
     ));
 

@@ -10,12 +10,13 @@ import './_movieDetails.scss';
 
 interface Props {
   movie: IMovie
+  resetId: () => void
 }
 
 const MovieDetails = ({
   movie: {
     poster_path, title, vote_average, release_date, genres, runtime, overview
-  }
+  }, resetId
 }: Props) => {
   const processedGenres = genres.join(' & ');
   const releaseYear = release_date?.slice(0, 4);
@@ -24,6 +25,11 @@ const MovieDetails = ({
 
   const dispatch = useDispatch<AppDispatch>();
 
+  const returnToSearch = () => {
+    dispatch(resetActiveMovie());
+    resetId();
+  };
+
   return (
     <div className="movieDetails">
       <div className="movieDetails__header">
@@ -31,7 +37,7 @@ const MovieDetails = ({
         <button
           type="button"
           className="movieDetails__searchButton"
-          onClick={() => dispatch(resetActiveMovie())}
+          onClick={returnToSearch}
         />
       </div>
       <div className="movieDetails__main">
