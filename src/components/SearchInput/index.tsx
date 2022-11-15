@@ -9,11 +9,9 @@ const SearchInput = () => {
   const { searchQuery } = useParams();
 
   const onSearchSubmit = ({ query }: { query: string }) => {
-    if (query === '') {
-      navigate('/search');
-    } else {
-      navigate(`/search/${query}`);
-    }
+    const navigateTo = query === '' ? '/search' : `/search/${query}`;
+
+    navigate(navigateTo);
   };
 
   return (
