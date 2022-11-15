@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { setSelectedMovieId } from '../../redux/movieSlice';
-import { selectMovieId } from '../../redux/selectors';
-import { AppDispatch } from '../../redux/store';
+import { setSelectedMovieId } from 'reduxStore/movieSlice';
+import { selectMovieId } from 'reduxStore/selectors';
+import { AppDispatch } from 'reduxStore/store';
 import { CONTEXT_MENU_OPTIONS } from '../constants';
 import './_contextMenu.scss';
 

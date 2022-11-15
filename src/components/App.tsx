@@ -1,32 +1,55 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { Suspense } from 'react';
+import {
+  BrowserRouter as Router, Routes, Route, Navigate
+} from 'react-router-dom';
 
-import Header from './Header';
-import FilterBar from './FilterBar';
+import SearchBar from './SearchBar';
 import Footer from './Footer';
-import MovieDetails from './MovieDetails';
-import MovieAdd from './movies/MovieAdd';
-import MovieEdit from './movies/MovieEdit';
-import MovieDelete from './movies/MovieDelete';
-import { selectActiveMovie, selectAllMovies } from '../redux/selectors';
+// import MovieAdd from './movies/MovieAdd';
+// import MovieEdit from './movies/MovieEdit';
+// import MovieDelete from './movies/MovieDelete';
+import NotFound from './NotFound';
 
-const App = () => {
-  const allMovies = useSelector(selectAllMovies);
-  const activeMovie = useSelector(selectActiveMovie);
+const MovieAdd = React.lazy(() => import('./movies/MovieAdd'));
+const MovieEdit = React.lazy(() => import('./movies/MovieEdit'));
+const MovieDelete = React.lazy(() => import('./movies/MovieDelete'));
 
-  return (
-    <Router>
-      {activeMovie ? <MovieDetails movie={activeMovie} /> : <Header />}
-      <Routes>
-        <Route path="/" element={<FilterBar moviesData={allMovies} />} />
-        <Route path="/movies/new" element={<MovieAdd />} />
-        <Route path="/movies/edit/:id" element={<MovieEdit />} />
-        <Route path="/movies/delete/:id" element={<MovieDelete />} />
-      </Routes>
-      <Footer />
-    </Router>
-  );
-};
+const App = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<Navigate to="/search" />} />
+      <Route path="/search" element={<SearchBar />} />
+      <Route path="/search/:searchQuery" element={<SearchBar />} />
+      <Route path="/movies">
+        <Route
+          path="new"
+          element={(
+            <Suspense fallback="Loading...">
+              <MovieAdd />
+            </Suspense>
+        )}
+        />
+        <Route
+          path="edit/:id"
+          element={(
+            <Suspense fallback="Loading...">
+              <MovieEdit />
+            </Suspense>
+        )}
+        />
+        <Route
+          path="delete/:id"
+          element={(
+            <Suspense fallback="Loading...">
+              <MovieDelete />
+            </Suspense>
+        )}
+        />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+    <Footer />
+  </Router>
+);
 
 export default App;
