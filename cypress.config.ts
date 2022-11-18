@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { defineConfig } from 'cypress';
+
 const webpackDevConfig = require('./webpack.dev');
 
 export default defineConfig({
@@ -11,16 +12,17 @@ export default defineConfig({
     specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
     excludeSpecPattern: ['**/1-getting-started/*', '**/2-advanced-examples/*'],
     setupNodeEvents(on, config) {
+      // eslint-disable-next-line import/no-extraneous-dependencies, global-require
       require('@cypress/code-coverage/task')(on, config);
-      return config
+      return config;
     }
   },
 
-  "component": {
-    "devServer": {
-      "framework": "react",
-      "bundler": "webpack",
-      "webpackConfig": {
+  component: {
+    devServer: {
+      framework: 'react',
+      bundler: 'webpack',
+      webpackConfig: {
         ...webpackDevConfig
       }
     }

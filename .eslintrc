@@ -1,5 +1,11 @@
 {
-  "extends": ["airbnb", "airbnb-typescript", "plugin:react-hooks/recommended"],
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:react-hooks/recommended",
+    "plugin:jest/recommended",
+    "plugin:cypress/recommended"
+  ],
   "env": {
     "jest": true
   },
