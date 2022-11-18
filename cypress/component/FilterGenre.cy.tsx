@@ -1,7 +1,7 @@
 import React from 'react';
- 
+
 import FilterGenre from '../../src/components/FilterGenre';
-  
+
 describe('FilterGenre', () => {
   it('render FilterGenre', () => {
     cy.mount(<FilterGenre activeGenre="Documentary" onGenreChange={cy.stub()} />);
@@ -10,7 +10,7 @@ describe('FilterGenre', () => {
 
     cy.contains('Documentary')
       .should('have.class', 'active');
-   });
+  });
 
   it('set active class to correct menuitem', () => {
     cy.mount(<FilterGenre activeGenre="Horror" onGenreChange={cy.stub()} />);
@@ -18,5 +18,4 @@ describe('FilterGenre', () => {
     cy.contains('Horror')
       .should('have.class', 'active');
   });
- });
- 
+});
