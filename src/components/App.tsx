@@ -5,9 +5,6 @@ import {
 
 import SearchBar from './SearchBar';
 import Footer from './Footer';
-// import MovieAdd from './movies/MovieAdd';
-// import MovieEdit from './movies/MovieEdit';
-// import MovieDelete from './movies/MovieDelete';
 import NotFound from './NotFound';
 
 const MovieAdd = React.lazy(() => import('./movies/MovieAdd'));

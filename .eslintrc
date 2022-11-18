@@ -1,5 +1,8 @@
 {
   "extends": ["airbnb", "airbnb-typescript", "plugin:react-hooks/recommended"],
+  "env": {
+    "jest": true
+  },
   "parserOptions": {
     "warnOnUnsupportedTypeScriptVersion": false,
     "project": "./tsconfig.json"

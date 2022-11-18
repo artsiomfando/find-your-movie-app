@@ -20,7 +20,7 @@ const MovieCard = ({
     <Card.Content>
       <Card.Header>{title}</Card.Header>
       <Card.Meta>{releaseDate?.slice(0, 4)}</Card.Meta>
-      <Card.Description>{genres.join(', ')}</Card.Description>
+      <Card.Description>{genres?.join(', ')}</Card.Description>
     </Card.Content>
   </Card>
 );
