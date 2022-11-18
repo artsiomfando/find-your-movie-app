@@ -1,0 +1,187 @@
+{
+  "totalAmount": 11,
+  "data": [
+    {
+      "id": 464593,
+      "title": "Earth: One Amazing Day",
+      "tagline": "One day. One planet. Infinite wonder.",
+      "vote_average": 7.8,
+      "vote_count": 9,
+      "release_date": "2017-08-04",
+      "poster_path": "https://image.tmdb.org/t/p/w500/7OKStVtpeptnfIgxXEyQubMMTey.jpg",
+      "overview": "An astonishing journey revealing the awesome power of the natural world. Over the course of one single day, we track the sun from the highest mountains to the remotest islands to exotic jungles.",
+      "budget": 0,
+      "revenue": 0,
+      "genres": [
+        "Documentary"
+      ],
+      "runtime": 95
+    },
+    {
+      "id": 13363,
+      "title": "The Man from Earth",
+      "tagline": "From one of the acclaimed writers of Star Trek and The Twilight Zone comes a story that transcends both time and space...",
+      "vote_average": 7.7,
+      "vote_count": 862,
+      "release_date": "2007-06-10",
+      "poster_path": "https://image.tmdb.org/t/p/w500/iMpsEbJ86IICI2qgADYtP9HvWTL.jpg",
+      "overview": "An impromptu goodbye party for Professor John Oldman becomes a mysterious interrogation after the retiring scholar reveals to his colleagues he never ages and has walked the earth for 14,000 years.",
+      "budget": 0,
+      "revenue": 0,
+      "genres": [
+        "Science Fiction",
+        "Drama"
+      ],
+      "runtime": 87
+    },
+    {
+      "id": 828,
+      "title": "The Day the Earth Stood Still",
+      "tagline": "From out of space... A warning and an ultimatum",
+      "vote_average": 7.4,
+      "vote_count": 381,
+      "release_date": "1951-09-17",
+      "poster_path": "https://image.tmdb.org/t/p/w500/tyujnQl6topN3O9lPnGMpzGsYQM.jpg",
+      "overview": "An alien and a robot land on earth after World War II and tell mankind to be peaceful or face destruction. A classic science fiction film from Robert Wise with an exceptional message.",
+      "budget": 1200000,
+      "revenue": 0,
+      "genres": [
+        "Drama",
+        "Science Fiction",
+        "Thriller"
+      ],
+      "runtime": 92
+    },
+    {
+      "id": 30061,
+      "title": "Justice League: Crisis on Two Earths",
+      "tagline": "When Justice meets its match, worlds collide.",
+      "vote_average": 7.1,
+      "vote_count": 195,
+      "release_date": "2010-02-23",
+      "poster_path": "https://image.tmdb.org/t/p/w500/mImQPVPKNGlqPDmewsZ7TLvHND.jpg",
+      "overview": "A heroic version of Lex Luthor from an alternate universe appears to recruit the Justice League to help save his Earth from the Crime Syndicate, an evil version of the League. What ensues is the ultimate battle of good versus evil in a war that threatens both planets and, through a devious plan launched by Batman's counterpart Owlman, puts the balance of all existence in peril.",
+      "budget": 0,
+      "revenue": 0,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Animation"
+      ],
+      "runtime": 75
+    },
+    {
+      "id": 415312,
+      "title": "The Man from Earth: Holocene",
+      "tagline": "",
+      "vote_average": 6.4,
+      "vote_count": 31,
+      "release_date": "2017-06-10",
+      "poster_path": "https://image.tmdb.org/t/p/w500/2NAFA7ZyQqp2UDOddeoMPhravIQ.jpg",
+      "overview": "14,000 year-old \"Man from Earth\" John Oldman, now teaching in northern California, realizes that not only is he finally starting to age, but four students have discovered his deepest secret, putting his life in grave danger and potentially destroying the world's most popular religion.",
+      "budget": 0,
+      "revenue": 0,
+      "genres": [
+        "Drama",
+        "Science Fiction"
+      ],
+      "runtime": 98
+    },
+    {
+      "id": 88751,
+      "title": "Journey to the Center of the Earth",
+      "tagline": "Same Planet. Different World.",
+      "vote_average": 5.8,
+      "vote_count": 1759,
+      "release_date": "2008-07-10",
+      "poster_path": "https://image.tmdb.org/t/p/w500/nlYk34gpPfM6KFujxB9HTHZyeiL.jpg",
+      "overview": "On a quest to find out what happened to his missing brother, a scientist, his nephew and their mountain guide discover a fantastic and dangerous lost world in the center of the earth.",
+      "budget": 45000000,
+      "revenue": 101702060,
+      "genres": [
+        "Action",
+        "Science Fiction",
+        "Adventure",
+        "Comedy",
+        "Family"
+      ],
+      "runtime": 93
+    },
+    {
+      "id": 68179,
+      "title": "Escape from Planet Earth",
+      "tagline": "Earth's greatest secrets are about to break out!",
+      "vote_average": 5.7,
+      "vote_count": 378,
+      "release_date": "2013-02-14",
+      "poster_path": "https://image.tmdb.org/t/p/w500/ql8q3VrEWQ7h0zdrUj0NF9IAm5i.jpg",
+      "overview": "Astronaut Scorch Supernova finds himself caught in a trap when he responds to an SOS from a notoriously dangerous alien planet.",
+      "budget": 40000000,
+      "revenue": 74597643,
+      "genres": [
+        "Animation",
+        "Comedy",
+        "Adventure",
+        "Family",
+        "Science Fiction"
+      ],
+      "runtime": 89
+    },
+    {
+      "id": 10200,
+      "title": "The Day the Earth Stood Still",
+      "tagline": "12.12.08 is the Day the Earth Stood Still",
+      "vote_average": 5.2,
+      "vote_count": 1305,
+      "release_date": "2008-12-10",
+      "poster_path": "https://image.tmdb.org/t/p/w500/7fNFk4EAGbuRFqrSJprgXEIX5Za.jpg",
+      "overview": "A representative of an alien race that went through drastic evolution to survive its own climate change, Klaatu comes to Earth to assess whether humanity can prevent the environmental damage they have inflicted on their own planet. When barred from speaking to the United Nations, he decides humankind shall be exterminated so the planet can survive.",
+      "budget": 80000000,
+      "revenue": 233093859,
+      "genres": [
+        "Drama",
+        "Science Fiction",
+        "Thriller"
+      ],
+      "runtime": 104
+    },
+    {
+      "id": 82700,
+      "title": "After Earth",
+      "tagline": "Danger is real, fear is a choice",
+      "vote_average": 5,
+      "vote_count": 3070,
+      "release_date": "2013-05-30",
+      "poster_path": "https://image.tmdb.org/t/p/w500/d0vReo0jcMhBjCLYZAFqWHcb7Lj.jpg",
+      "overview": "One thousand years after cataclysmic events forced humanity's escape from Earth, Nova Prime has become mankind's new home. Legendary General Cypher Raige returns from an extended tour of duty to his estranged family, ready to be a father to his 13-year-old son, Kitai. When an asteroid storm damages Cypher and Kitai's craft, they crash-land on a now unfamiliar and dangerous Earth. As his father lies dying in the cockpit, Kitai must trek across the hostile terrain to recover their rescue beacon. His whole life, Kitai has wanted nothing more than to be a soldier like his father. Today, he gets his chance.",
+      "budget": 130000000,
+      "revenue": 243843127,
+      "genres": [
+        "Science Fiction",
+        "Action",
+        "Adventure"
+      ],
+      "runtime": 100
+    },
+    {
+      "id": 5491,
+      "title": "Battlefield Earth",
+      "tagline": "Take Back The Planet",
+      "vote_average": 2.9,
+      "vote_count": 299,
+      "release_date": "2000-05-10",
+      "poster_path": "https://image.tmdb.org/t/p/w500/neMUscYddxr4cP8wnRHRMLcWS0A.jpg",
+      "overview": "In the year 3000, man is no match for the Psychlos, a greedy, manipulative race of aliens on a quest for ultimate profit. Led by the powerful Terl, the Psychlos are stripping Earth clean of its natural resources, using the broken remnants of humanity as slaves. What is left of the human race has descended into a near primitive state. After being captured, it is up to Tyler to save mankind.",
+      "budget": 44000000,
+      "revenue": 21400000,
+      "genres": [
+        "Action",
+        "Science Fiction",
+        "War"
+      ],
+      "runtime": 118
+    }
+  ],
+  "offset": 0,
+  "limit": 10
+}
