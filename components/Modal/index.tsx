@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import ReactDOM from 'react-dom';
 import Link from 'next/link';
 
 interface Props {
@@ -7,15 +6,14 @@ interface Props {
   children: ReactNode
 }
 
-const Modal = ({ title, children }: Props) => ReactDOM.createPortal(
+const Modal = ({ title, children }: Props) => (
   <div className="ui dimmer active movie-modal">
     <div className="ui modal active">
       <Link href="/" className="modal__close-cross" />
       <h3 className="modal__title">{title}</h3>
       {children}
     </div>
-  </div>,
-  document.querySelector('#modal')!
+  </div>
 );
 
 export default Modal;

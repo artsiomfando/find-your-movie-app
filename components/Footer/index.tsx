@@ -1,10 +1,10 @@
 import React from 'react';
 
 import Logo from '../Logo';
-// import './_footer.scss';
+import styles from './_footer.module.scss';
 
 const Footer = () => (
-  <div className="footer">
+  <div className={styles.footer}>
     <Logo />
   </div>
 );

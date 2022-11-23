@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Dropdown } from 'semantic-ui-react';
 
 import MovieCheckbox from '../MovieCheckbox';
-import './_movieDropdown.scss';
 
 interface Props {
   options: string[]

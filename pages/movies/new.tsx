@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Modal from '../../Modal';
-import MovieForm from '../MovieForm';
+import Modal from '../../components/Modal';
+import MovieForm from '../../components/movies/MovieForm';
 
 const MovieAdd = () => (
   <Modal title="add movie">

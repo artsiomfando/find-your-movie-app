@@ -11,7 +11,6 @@ import MovieDropdown from '../MovieDropdown';
 import MovieDatePicker from '../MovieDatePicker';
 import movieFormSchema from '../movieFormSchema';
 import { GENRES, MOVIE_FORM_FIELDS, MOVIE_FORM_INITIAL_VALUES } from '../../constants';
-import './_movieForm.scss';
 import { IMovie, IMovieBase } from '../../types';
 
 interface Props {

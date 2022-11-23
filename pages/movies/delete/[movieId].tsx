@@ -4,8 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { AppDispatch } from 'reduxStore/store';
 import { removeMovie } from 'reduxStore/apiCalls';
-import Modal from '../../Modal';
-import './_movieDelete.scss';
+import Modal from '../../../components/Modal';
 
 const MovieDelete = () => {
   const dispatch = useDispatch<AppDispatch>();

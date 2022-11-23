@@ -1,7 +1,12 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import Head from 'next/head';
 import type { AppProps } from 'next/app';
-// import '../scss/_styles.scss';
+
+import store from '../redux/store';
+
+import 'semantic-ui-css/semantic.min.css';
+import '../scss/_styles.scss';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -12,7 +17,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Find your movie</title>
       </Head>
-     <Component {...pageProps} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
    </div>
   )
 }

@@ -1,28 +1,27 @@
 import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import { Field, Form, Formik } from 'formik';
 
-// import './_searchBar.scss';
+import styles from './_searchBar.module.scss';
 
 const SearchInput = () => {
-  const navigate = useNavigate();
-  const { searchQuery } = useParams();
+  const router = useRouter();
 
   const onSearchSubmit = ({ query }: { query: string }) => {
-    const navigateTo = query === '' ? '/search' : `/search/${query}`;
+    const navigateTo = query === '' ? '/' : `/search/${query}`;
 
-    navigate(navigateTo);
+    router.push(navigateTo);
   };
 
   return (
-    <div className="searchBar">
+    <div className={styles.searchBar}>
       <Formik
         initialValues={{
-          query: searchQuery || ''
+          query: ''
         }}
         onSubmit={onSearchSubmit}
       >
-        <Form className="searchBar__form" autoComplete="off">
+        <Form className={styles.searchBar__form} autoComplete="off">
           <Field
             type="text"
             name="query"

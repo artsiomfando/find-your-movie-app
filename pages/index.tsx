@@ -1,15 +1,15 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import Footer from '../components/Footer';
 
 // import SearchBar from '../components/SearchBar';
-import store from '../redux/store';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import SearchBar from '../components/SearchBar';
 
 export default function HomePage() {
   return (
-  <Provider store={store}>
-    
+  <>
+    <SearchBar />
     <Footer />
-  </Provider>
+  </>
   )
 };

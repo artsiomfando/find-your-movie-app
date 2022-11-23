@@ -1,17 +1,20 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useRouter } from 'next/router';
+// import { useParams } from 'react-router-dom';
 
 import { selectAllMovies } from 'reduxStore/selectors';
-import Modal from '../../Modal';
-import MovieForm from '../MovieForm';
-import { IMovie } from '../../types';
+import Modal from '../../../components/Modal';
+import MovieForm from '../../../components/movies/MovieForm';
+import { IMovie } from '../../../components/types';
 
 const MovieEdit = () => {
   const movies = useSelector(selectAllMovies);
-  const { id } = useParams();
+  const router = useRouter();
+  const { movieId } = router.query;
+  // const { id } = useParams();
 
-  const chosenMovie = movies.find((movie) => movie.id === +id!) as IMovie;
+  const chosenMovie = movies.find((movie) => movie.id === +movieId!) as IMovie;
 
   const {
     // eslint-disable-next-line @typescript-eslint/naming-convention

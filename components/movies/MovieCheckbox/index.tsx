@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { useField } from 'formik';
 
-import './_movieCheckbox.scss';
-
 interface Props {
   value: string
   setWarning: (warningText: string | undefined) => void

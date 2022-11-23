@@ -1,9 +1,9 @@
 import React from 'react';
 
-// import './_logo.scss';
+import styles from './_logo.module.scss';
 
 const Logo = () => (
-  <span className="logo">
+  <span className={styles.logo}>
     <span>netflix</span>
     roulette
   </span>

@@ -2,13 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 
 import Logo from '../Logo';
-// import './_topBar.scss';
+import styles from './_topBar.module.scss';
 
 const TopBar = () => (
-  <div className="topBar">
+  <div className={styles.topBar}>
     <Logo />
-    <span className="topBar__button">
-      <Link href="/movies/new" className="topBar__link">+ ADD MOVIE</Link>
+    <span className={styles.topBar__button}>
+      <Link href="/movies/new" className={styles.topBar__link}>+ ADD MOVIE</Link>
     </span>
   </div>
 );

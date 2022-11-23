@@ -42,7 +42,7 @@
     }
 
     .calendar-icon {
-      background-image: url(../../../assets/icons/calendar.svg);
+      background-image: url(../../../public/assets/icons/calendar.svg);
       background-repeat: no-repeat;
       background-position: 90% center;
     }
@@ -50,7 +50,7 @@
 
   &__buttons {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 
     .button-reset {
       border: 1px solid $red;

@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
-import { useParams, useSearchParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+// import { useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/router';
+// { useParams, useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchMovie, fetchMovies } from 'reduxStore/apiCalls';
@@ -13,7 +15,7 @@ import FilterResults from '../FilterResults';
 import ErrorBoundary from '../ErrorBoundary';
 import { FILTER_OPTIONS, GENRES } from '../constants';
 import { TSortCategory } from '../types';
-// import './_filterBar.scss';
+import styles from './_filterBar.module.scss';
 
 const SafeErrorComponent = ({ errorMessage }: { errorMessage: string }) => (
   <div>
@@ -26,15 +28,22 @@ const SearchBar = () => {
   const dispatch = useDispatch<AppDispatch>();
   const allMovies = useSelector(selectAllMovies);
   const activeMovie = useSelector(selectActiveMovie);
-  const { searchQuery } = useParams();
+  const router = useRouter();
+  const { searchQuery } = router.query;
+  // const { searchQuery } = useParams();
+  let defaultSortBy;
+  if (typeof window !== "undefined") {
+    defaultSortBy = JSON.parse(localStorage.getItem('sortCategory')!)
+  }
+
   const movieSearchParams = {
-    sortBy: JSON.parse(localStorage.getItem('sortCategory')!) ?? FILTER_OPTIONS[0].value,
+    sortBy: defaultSortBy ?? FILTER_OPTIONS[0].value,
     genre: GENRES[0].toLowerCase()
   };
-  const [searchParams, setSearchParams] = useSearchParams(movieSearchParams);
-  const activeGenre = searchParams.get('genre');
-  const activeSortCategory = searchParams.get('sortBy');
-  const activeMovieId = searchParams.get('movie');
+  const [searchParams, setSearchParams] = useState(movieSearchParams);
+  const activeGenre = searchParams.genre;
+  const activeSortCategory = searchParams.sortBy;
+  const activeMovieId = searchQuery;
 
   const onGenreItem = (genre: string) => {
     setSearchParams({
@@ -74,7 +83,7 @@ const SearchBar = () => {
     }
 
     dispatch(fetchMovies({
-      sortCategory: activeSortCategory!,
+      sortCategory: activeSortCategory! as string,
       genreCategory: activeGenre === GENRES[0].toLowerCase() ? '' : activeGenre as string,
       searchQuery,
       searchCategory: 'title'
@@ -86,8 +95,8 @@ const SearchBar = () => {
   return (
     <>
       {activeMovie ? <MovieDetails movie={activeMovie} resetId={resetActiveMovieId} /> : <Header />}
-      <div className="filterBar">
-        <div className="filterBar__nav">
+      <div className={styles.filterBar}>
+        <div className={styles.filterBar__nav}>
           <FilterGenre activeGenre={activeGenre!} onGenreChange={onGenreItem} />
           <FilterDropdown activeSortCategory={activeSortCategory!} onSortChange={onSortItem} />
         </div>

@@ -6,7 +6,7 @@ import { setSelectedMovieId } from 'reduxStore/movieSlice';
 import { selectMovieId } from 'reduxStore/selectors';
 import { AppDispatch } from 'reduxStore/store';
 import { CONTEXT_MENU_OPTIONS } from '../constants';
-// import './_contextMenu.scss';
+import styles from './_contextMenu.module.scss';
 
 const ContextMenu = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -43,13 +43,13 @@ const ContextMenu = () => {
   }, [menuData]);
 
   return (
-    <div ref={contextMenuRef} className="contextMenu" style={{ display: `${menuData.showMenu ? 'flex' : 'none'}`, left: menuData.posX, top: menuData.posY }}>
-      <div className="contextMenu__close-cross" />
+    <div ref={contextMenuRef} className={styles.contextMenu} style={{ display: `${menuData.showMenu ? 'flex' : 'none'}`, left: menuData.posX, top: menuData.posY }}>
+      <div className={styles['contextMenu__close-cross']} />
       {CONTEXT_MENU_OPTIONS.map((option) => (
         <Link
           key={option}
           href={`/movies/${option}/${movieId}`}
-          className="contextMenu__option"
+          className={styles.contextMenu__option}
         >
           {option}
         </Link>

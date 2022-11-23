@@ -7,8 +7,8 @@ import SearchBar from './components/SearchBar';
 import Footer from './components/Footer';
 import NotFound from './components/NotFound';
 
-const MovieAdd = React.lazy(() => import('./components/movies/MovieAdd'));
-const MovieEdit = React.lazy(() => import('./components/movies/MovieEdit'));
+const MovieAdd = React.lazy(() => import('./pages/movies/new'));
+const MovieEdit = React.lazy(() => import('./pages/movies/edit/[movieId]'));
 const MovieDelete = React.lazy(() => import('./components/movies/MovieDelete'));
 
 const App = () => (
