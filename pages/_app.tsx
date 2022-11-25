@@ -20,6 +20,6 @@ export default function App({ Component, pageProps }: AppProps) {
       <Provider store={store}>
         <Component {...pageProps} />
       </Provider>
-   </div>
-  )
+    </div>
+  );
 }

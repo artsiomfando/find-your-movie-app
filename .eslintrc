@@ -3,12 +3,12 @@
     "airbnb",
     "airbnb-typescript",
     "plugin:react-hooks/recommended",
-    "plugin:jest/recommended",
-    "plugin:cypress/recommended"
+    "plugin:jest/recommended"
   ],
   "env": {
     "jest": true
   },
+  "ignorePatterns": "*",
   "parserOptions": {
     "warnOnUnsupportedTypeScriptVersion": false,
     "project": "./tsconfig.json"

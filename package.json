@@ -78,7 +78,7 @@
     "yup": "^0.32.11"
   },
   "lint-staged": {
-    "src/**/*.{tsx, ts, jsx, js}": "eslint"
+    "pages/**/*.{tsx, ts, jsx, js}": "eslint"
   },
   "jest": {
     "moduleNameMapper": {

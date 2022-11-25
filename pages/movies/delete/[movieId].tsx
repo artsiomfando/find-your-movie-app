@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 
 import { AppDispatch } from 'reduxStore/store';
@@ -8,7 +8,8 @@ import Modal from '../../../components/Modal';
 
 const MovieDelete = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { id } = useParams();
+  const router = useRouter();
+  const { movieId } = router.query;
 
   const modalContent = () => (
     <>
@@ -16,7 +17,7 @@ const MovieDelete = () => {
       <button
         type="button"
         className="button modal-button movieDelete__button"
-        onClick={() => dispatch(removeMovie(+id!))}
+        onClick={() => dispatch(removeMovie(+movieId!))}
       >
         Confirm
       </button>

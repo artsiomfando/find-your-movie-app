@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
 
 import { AppDispatch } from 'reduxStore/store';
 import { resetActiveMovie } from 'reduxStore/movieSlice';
 import Logo from '../Logo';
 import transformMovieRuntime from '../helpers/transformMovieRuntime';
 import { IMovie } from '../types';
-// import './_movieDetails.scss';
 
 interface Props {
   movie: IMovie
@@ -24,10 +24,13 @@ const MovieDetails = ({
   const processedRuntime = runtime ? transformMovieRuntime(runtime) : null;
 
   const dispatch = useDispatch<AppDispatch>();
+  const router = useRouter();
 
   const returnToSearch = () => {
     dispatch(resetActiveMovie());
     resetId();
+
+    router.push('/');
   };
 
   return (

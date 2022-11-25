@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/router';
-// { useParams, useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchMovie, fetchMovies } from 'reduxStore/apiCalls';
@@ -14,8 +12,18 @@ import FilterDropdown from '../FilterDropdown';
 import FilterResults from '../FilterResults';
 import ErrorBoundary from '../ErrorBoundary';
 import { FILTER_OPTIONS, GENRES } from '../constants';
-import { TSortCategory } from '../types';
+import { IMovie, TSortCategory } from '../types';
 import styles from './_filterBar.module.scss';
+
+interface Props {
+  movies: IMovie[]
+}
+
+interface IMovieSearcParams {
+  sortBy: string,
+  genre: string,
+  movie?: string | string[]
+}
 
 const SafeErrorComponent = ({ errorMessage }: { errorMessage: string }) => (
   <div>
@@ -24,26 +32,26 @@ const SafeErrorComponent = ({ errorMessage }: { errorMessage: string }) => (
   </div>
 );
 
-const SearchBar = () => {
+const SearchBar = ({ movies }: Props) => {
   const dispatch = useDispatch<AppDispatch>();
   const allMovies = useSelector(selectAllMovies);
   const activeMovie = useSelector(selectActiveMovie);
   const router = useRouter();
-  const { searchQuery } = router.query;
-  // const { searchQuery } = useParams();
+  const { movieId, searchQuery } = router.query;
+
   let defaultSortBy;
-  if (typeof window !== "undefined") {
-    defaultSortBy = JSON.parse(localStorage.getItem('sortCategory')!)
+  if (typeof window !== 'undefined') {
+    defaultSortBy = JSON.parse(localStorage.getItem('sortCategory')!);
   }
 
   const movieSearchParams = {
     sortBy: defaultSortBy ?? FILTER_OPTIONS[0].value,
-    genre: GENRES[0].toLowerCase()
+    genre: GENRES[0].toLowerCase(),
   };
-  const [searchParams, setSearchParams] = useState(movieSearchParams);
+  const [searchParams, setSearchParams] = useState<IMovieSearcParams>(movieSearchParams);
   const activeGenre = searchParams.genre;
   const activeSortCategory = searchParams.sortBy;
-  const activeMovieId = searchQuery;
+  const activeMovieId = movieId;
 
   const onGenreItem = (genre: string) => {
     setSearchParams({
@@ -67,6 +75,8 @@ const SearchBar = () => {
       genre: activeGenre!,
       movie: `${id}`
     });
+
+    router.push(`/movies/${id}`);
   };
 
   const resetActiveMovieId = () => {
@@ -85,12 +95,12 @@ const SearchBar = () => {
     dispatch(fetchMovies({
       sortCategory: activeSortCategory! as string,
       genreCategory: activeGenre === GENRES[0].toLowerCase() ? '' : activeGenre as string,
-      searchQuery,
+      searchQuery: searchQuery as string,
       searchCategory: 'title'
     }));
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchQuery, searchParams]);
+  }, [movieId, searchQuery, searchParams]);
 
   return (
     <>
@@ -101,7 +111,7 @@ const SearchBar = () => {
           <FilterDropdown activeSortCategory={activeSortCategory!} onSortChange={onSortItem} />
         </div>
         <ErrorBoundary ErrorComponent={SafeErrorComponent}>
-          <FilterResults moviesList={allMovies} onMovieClick={onMovieItem} />
+          <FilterResults moviesList={movies} onMovieClick={onMovieItem} />
         </ErrorBoundary>
       </div>
     </>

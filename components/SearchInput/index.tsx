@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { Field, Form, Formik } from 'formik';
 
 import styles from './_searchBar.module.scss';
+import Link from 'next/link';
 
 const SearchInput = () => {
   const router = useRouter();
@@ -21,7 +22,7 @@ const SearchInput = () => {
         }}
         onSubmit={onSearchSubmit}
       >
-        <Form className={styles.searchBar__form} autoComplete="off">
+        <Form action="/api/form" method="POST" className={styles.searchBar__form} autoComplete="off">
           <Field
             type="text"
             name="query"
