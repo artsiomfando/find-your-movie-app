@@ -6,12 +6,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  entry: './src/index.tsx',
+  entry: './index.tsx',
   target: 'web',
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.scss'],
     alias: {
-      reduxStore: path.resolve(__dirname, 'src/redux')
+      reduxStore: path.resolve(__dirname, 'redux')
     }
   },
   module: {

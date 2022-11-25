@@ -1,0 +1,41 @@
+@import '../../scss/variables';
+
+.contextMenu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 190px;
+  background-color: rgba($dark-grey, .95);
+  padding-top: 25px;
+  padding-bottom: 12px; 
+
+  &__close-cross {
+    position: absolute;
+    top: 6px;
+    right: 9px;
+    width: 11px;
+    height: 12px;
+    background: url(../../public/assets/icons/close-cross.svg) no-repeat;
+    background-size: contain;
+    cursor: pointer;
+  }
+
+  &__option {
+    text-align: left;
+    text-decoration: none;
+    text-transform: capitalize;
+    padding-block: 7px;
+    padding-left: 23px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: $white;
+    background-color: rgba($dark-grey, .95);
+    cursor: pointer;
+
+    &:hover {
+      color: $white;
+      background-color: $red;
+    }
+  }
+}
