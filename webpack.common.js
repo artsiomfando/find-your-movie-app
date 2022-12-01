@@ -26,6 +26,7 @@ module.exports = {
         use: [
           isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
           'css-loader',
+          'resolve-url-loader',
           'sass-loader',
         ],
       },

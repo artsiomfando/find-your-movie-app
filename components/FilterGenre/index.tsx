@@ -3,7 +3,7 @@ import { Menu, MenuItemProps } from 'semantic-ui-react';
 
 import { GENRES } from '../constants';
 
-interface Props {
+export interface Props {
   onGenreChange: (genre: string) => void
   activeGenre: string
 }

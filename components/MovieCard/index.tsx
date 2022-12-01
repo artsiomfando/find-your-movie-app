@@ -3,7 +3,7 @@ import { Card, Image } from 'semantic-ui-react';
 
 import defaultPoster from '../../public/assets/images/default-poster.jpg';
 
-interface Props {
+export interface Props {
   id: number,
   poster: string
   title: string
